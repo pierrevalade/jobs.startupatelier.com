@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: subscriptions
+#
+#  id            :integer(4)      not null, primary key
+#  subscriber_id :integer(4)
+#  position_id   :integer(4)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subscriber_id: 1
+  position_id: 1
+
+two:
+  subscriber_id: 1
+  position_id: 1

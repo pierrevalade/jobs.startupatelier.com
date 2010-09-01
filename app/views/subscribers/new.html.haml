@@ -1,0 +1,32 @@
+%h1#logo Startups Jobs
+%h2 Les meilleurs offres de startups à Paris chaque lundi matin par email
+
+- form_for @subscriber do |form|
+  #sectors-title.title Choisissez un ou plusieurs domaines
+  #sectors-list
+    %ul
+      - @sectors.each do |sector|
+        - id_cbt = "sector_#{sector.id}_cbt"
+        %li.sector
+          = check_box_tag "sectors[]", sector.id, false, {:id => id_cbt, :class => "sector_cbt"}
+          = label_tag id_cbt, sector.name
+      .clear
+  
+  #positions-title.title Pour chaque domaine sélectionné, choisissez un ou plusieurs profils
+  #positions-list
+    - @sectors.each do |sector|
+      %ul.positions{:id => "positions_sector_#{sector.id}"}
+        .name= sector.name
+        - sector.positions.all.each do |position|
+          - id_cbt = "position_#{position.id}_cbt"
+          %li.position
+            = check_box_tag "sector[#{sector.id}]positions[]", position.id, false, {:id => id_cbt, :class => "position_cbt"}
+            = label_tag id_cbt, position.name
+        .clear
+  
+  #email
+    .title
+      Votre email
+    %p= form.text_field :email
+    %p= form.submit "S'inscrire"
+  

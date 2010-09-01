@@ -1,0 +1,13 @@
+<p>
+  <b>Sector:</b>
+  <%=h @position.sector.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @position.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_position_path(@position) %> |
+<%= link_to 'Back', positions_path %>
